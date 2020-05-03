@@ -1,0 +1,11 @@
+version: '2'
+services:
+  bazarv3-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/bazarv3/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=bazarv3
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
