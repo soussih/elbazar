@@ -1,0 +1,10 @@
+{
+  "bazarv3App": {
+    "RegMod": {
+      "null": "",
+      "Cartebancaire": "Cartebancaire",
+      "Cash": "Cash",
+      "Cheque": "Cheque"
+    }
+  }
+}

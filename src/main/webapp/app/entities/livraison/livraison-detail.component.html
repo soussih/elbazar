@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="livraison">
+            <h2><span jhiTranslate="bazarv3App.livraison.detail.title">Livraison</span> {{ livraison.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.livraison.categorieClient">Categorie Client</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.CatClient.' + livraison.categorieClient }}">{{ livraison.categorieClient }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.livraison.intervalValeur">Interval Valeur</span></dt>
+                <dd>
+                    <span>{{ livraison.intervalValeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.livraison.frais">Frais</span></dt>
+                <dd>
+                    <span>{{ livraison.frais }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.livraison.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ livraison.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.livraison.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ livraison.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.livraison.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ livraison.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.livraison.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ livraison.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.livraison.zone">Zone</span></dt>
+                <dd>
+                    <div *ngIf="livraison.zoneId">
+                        <a [routerLink]="['/zone', livraison.zoneId, 'view']">{{ livraison.zoneNom }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/livraison', livraison.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,176 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-adresse-heading" jhiTranslate="bazarv3App.adresse.home.createOrEditLabel">Create or edit a Adresse</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.principale" for="field_principale">Principale</label>
+                    <input type="checkbox" class="form-control" name="principale" id="field_principale"
+                           formControlName="principale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                    <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                    <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prenom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.adresseLigne1" for="field_adresseLigne1">Adresse Ligne 1</label>
+                    <input type="number" class="form-control" name="adresseLigne1" id="field_adresseLigne1"
+                           formControlName="adresseLigne1"/>
+                    <div *ngIf="editForm.get('adresseLigne1')!.invalid && (editForm.get('adresseLigne1')!.dirty || editForm.get('adresseLigne1')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adresseLigne1')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('adresseLigne1')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.adresseLigne2" for="field_adresseLigne2">Adresse Ligne 2</label>
+                    <input type="number" class="form-control" name="adresseLigne2" id="field_adresseLigne2"
+                           formControlName="adresseLigne2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.gouvernorat" for="field_gouvernorat">Gouvernorat</label>
+                    <input type="text" class="form-control" name="gouvernorat" id="field_gouvernorat"
+                           formControlName="gouvernorat"/>
+                    <div *ngIf="editForm.get('gouvernorat')!.invalid && (editForm.get('gouvernorat')!.dirty || editForm.get('gouvernorat')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('gouvernorat')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.ville" for="field_ville">Ville</label>
+                    <input type="text" class="form-control" name="ville" id="field_ville"
+                           formControlName="ville"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.cite" for="field_cite">Cite</label>
+                    <input type="text" class="form-control" name="cite" id="field_cite"
+                           formControlName="cite"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.indication" for="field_indication">Indication</label>
+                    <input type="text" class="form-control" name="indication" id="field_indication"
+                           formControlName="indication"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.telephone" for="field_telephone">Telephone</label>
+                    <input type="number" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.mobile" for="field_mobile">Mobile</label>
+                    <input type="number" class="form-control" name="mobile" id="field_mobile"
+                           formControlName="mobile"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.creeLe" for="field_creeLe">Cree Le</label>
+                    <div class="input-group">
+                        <input id="field_creeLe" type="text" class="form-control" name="creeLe" ngbDatepicker #creeLeDp="ngbDatepicker" formControlName="creeLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="creeLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.creePar" for="field_creePar">Cree Par</label>
+                    <input type="number" class="form-control" name="creePar" id="field_creePar"
+                           formControlName="creePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.modifieLe" for="field_modifieLe">Modifie Le</label>
+                    <div class="input-group">
+                        <input id="field_modifieLe" type="text" class="form-control" name="modifieLe" ngbDatepicker #modifieLeDp="ngbDatepicker" formControlName="modifieLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifieLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.modifiePar" for="field_modifiePar">Modifie Par</label>
+                    <input type="number" class="form-control" name="modifiePar" id="field_modifiePar"
+                           formControlName="modifiePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.client" for="field_client">Client</label>
+                    <select class="form-control" id="field_client" name="client" formControlName="clientId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientOption.id" *ngFor="let clientOption of clients; trackBy: trackById">{{ clientOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.zone" for="field_zone">Zone</label>
+                    <select class="form-control" id="field_zone" name="zone" formControlName="zoneId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="zoneOption.id" *ngFor="let zoneOption of zones; trackBy: trackById">{{ zoneOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.adresse.codePostal" for="field_codePostal">Code Postal</label>
+                    <select class="form-control" id="field_codePostal" name="codePostal" formControlName="codePostalId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="codePostauxOption.id" *ngFor="let codePostauxOption of codepostauxes; trackBy: trackById">{{ codePostauxOption.codePostal }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

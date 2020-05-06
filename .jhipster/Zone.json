@@ -1,0 +1,56 @@
+{
+    "name": "Zone",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "adresse",
+            "otherEntityRelationshipName": "zone",
+            "relationshipName": "adresse"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "livraison",
+            "otherEntityRelationshipName": "zone",
+            "relationshipName": "livraison"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "codePostaux",
+            "otherEntityRelationshipName": "zone",
+            "relationshipName": "codePostaux"
+        }
+    ],
+    "changelogDate": "20200503021600",
+    "entityTableName": "zone",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

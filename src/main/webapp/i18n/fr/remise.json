@@ -1,0 +1,34 @@
+{
+  "bazarv3App": {
+    "remise": {
+      "home": {
+        "title": "Remises",
+        "createLabel": "Créer un nouveau Remise",
+        "createOrEditLabel": "Créer ou éditer un Remise",
+        "search": "Recherche pour Remise",
+        "notFound": "Aucun Remise trouvé"
+      },
+      "created": "Un nouveau Remise a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Remise avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Remise avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Remise {{ id }} ?"
+      },
+      "detail": {
+        "title": "Remise"
+      },
+      "categorieClient": "Categorie Client",
+      "prixUnitaire": "Prix Unitaire",
+      "remiseCategorie": "Remise Categorie",
+      "remisePromo": "Remise Promo",
+      "cumulable": "Cumulable",
+      "debutPromo": "Debut Promo",
+      "finPromo": "Fin Promo",
+      "creeLe": "Cree Le",
+      "creePar": "Cree Par",
+      "modifieLe": "Modifie Le",
+      "modifiePar": "Modifie Par",
+      "idProduit": "Id Produit"
+    }
+  }
+}

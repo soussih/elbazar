@@ -1,0 +1,235 @@
+entity Categorie {
+    nom String required	// Nom de la catégorie
+    description String 	// Description de la catégorie
+    position Integer required		// Position d'affichage
+    etat Boolean		// Gérer l'affichage des catégories
+    creeLe LocalDate 	// Créé le
+    creePar Integer 		// Créé par 
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par 
+}
+entity SousCategorie {
+    nom String required		// Designation sous catégorie
+    description String	// Description sous catégorie
+    position Integer required			// Position d'affichage
+    etat Boolean 	// Gérer l'affichage des sous catégories
+    creeLe LocalDate 	// Créé le
+    creePar Integer 		// Créé par 
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par
+}
+entity Produit {
+    nom String required 		// Saisie manuelle par le back
+    codeBarre Integer 			// Designation produit
+    description String 		// Description produit
+    etat Boolean required	// Produit Acti / Incatif
+    unite 	String	 			// Unite vente produit (Consommé de l'entitée PRODUITUNITE)
+	marque String 			// Marque Produit  (Consommé de l'entitée PRODUITENUM)
+	nature String			// Nature produit  (Consommé de l'entitée PRODUITENUM)
+    stockMinimum Double			// Seuil min en Stock
+	quantiteVenteMax Double			// Quantité de vente max
+	datePremption LocalDate	// Date de préemption
+    prixUnitaireHT Double 			// Prix de vente HT unitaire
+    tauxTva Double				// Valeur TVA Appliquée
+    prixTtc Double				// Prix TTC
+    sourceProduit	SourcePrd required		// Source du produit 
+	horsStock Boolean		// Flag hors stock
+    rating	String	pattern(/^[1-5]$/) 	// Score du produit 1-5
+	remise	Double			// Remise promo / Produit
+    creeLe LocalDate 		// Créé le
+    creePar Integer 			// Créé par 
+    modifieLe LocalDate 		// mise à jour le
+    modifiePar Integer 			// mise à jour par
+}
+enum SourcePrd{
+	Locale, Externe
+}
+entity ProdEnumeration{
+	type	ProdEnum
+    nom		String
+}
+enum ProdEnum {
+	Marque, Classe, Nature, Collection
+}
+entity ProduitUnite {
+    prdunite	String
+}
+
+entity Stock {
+	stockPhysique	Double			// Quantité Physique
+    stockDisponible Double 			// Qté Disponible à la vente
+	stockReserve Double			// Qté en commande
+	stockCommande Double			// Qté en commande confirmée par l'administrateur
+    derniereEntre LocalDate	// Date d'entrée en stock
+    derniereSortie LocalDate	// Date dernière sortie de stock
+    alerteStock Boolean			// Alerte stock minimum (Stock disponible - Qté limite prod <= 0)
+    creeLe LocalDate 		// Créé le
+    creePar Integer 			// Créé par 
+    modifieLe LocalDate 		// mise à jour le
+    modifiePar Integer 			// mise à jour par 
+}
+
+entity MouvementStock {
+	type TypeMvt		// Type mouvement stock 
+    date LocalDate		// Dat mouvement (il peut aussi hériter la date de la livraison)
+    sens Integer		// 1: Entrée stock || -1: Sortie Stock ou Commande
+    quantite Double			// Qunatité entré ou sortie (valeur négative ou positive)
+    creeLe LocalDate 	// Créé le
+    creePar Integer 		// Créé par 
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par 
+}
+enum TypeMvt {
+	Stock, Commande
+}
+
+entity Client {
+    civilite Civilite required		// M. ou Mme.
+    nom String required			// Nom Client
+    prenom String required		// Prénom Client
+	dateDeNaissance LocalDate required	// Date de naissance 
+    email String required				// Adresse email principale
+    mobile Integer required			// Tél. Mobile principale du compte
+    reglement RegMod				// Mode réglement préféré
+    etat Boolean			// Définir le client actif ou inactif
+    derniereVisite LocalDate		// Dernière visite
+    totalAchat Double		// Montant total de toutes les commandes
+	categorie	CatClient required
+	pointsFidelite	Integer			// Nombre de points de fidélité cumulés
+    creeLe LocalDate 		// Créé le
+    creePar Integer 			// Créé par 
+    modifieLe LocalDate 		// mise à jour le
+    modifiePar Integer 			// mise à jour par
+}
+enum Civilite {
+	M, Mme
+}
+enum RegMod {
+	Cartebancaire, Cash, Cheque
+}
+enum CatClient {
+	Silver, Gold, Platinium
+}
+entity Adresse {
+    principale Boolean 	// Adresse par défaut du client Check box
+    nom String required		// Nom du la personne a livrer (Par defaut Nom Client)
+    prenom String required	// Nom du la personne a livrer (Par defaut prenom Client)
+	adresseLigne1 Integer required 		// 1ere Ligne d'adresse
+    adresseLigne2 Integer		// 2eme Ligne d'adresse
+    gouvernorat String required	// Selection du Gouvernorat
+    ville String 		// Selection de la ville
+    cite String 	// Selection de la cité (Localité)
+    indication String 	// Description de l'adresse : Indications aux livreurs
+    telephone Integer		// N. Tel pour cette livraison 
+    mobile Integer	// N. Tel mobile pour cette livraison (par défaut le mobile client)
+    creeLe LocalDate 	// Créé le
+    creePar Integer 		// Créé par 
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par
+}
+entity Commande {
+    reference String pattern(/^[a-zA-Z0-9]{0,12}$/)		// Référence de la commande
+    date LocalDate			// Date de la commande
+    statut StatCmd			// Le statut de la commande a notifier
+    naturePiece NaturePiece 	// Le type du document qui change suivant une action  
+    totalHT Double				// Valeur totale HT
+    totalTVA Double			// Valeur totale TVA
+    totalRemise Double			// Valeur totale remise
+    totTTC Double			// Valeur totale TTC
+	zone	String					// Nom de la zone
+	dateLivraison LocalDate	// Date de livraison
+    creeLe LocalDate 	// Créé le
+    creePar Integer 		// Créé par 
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par
+}
+enum StatCmd {
+	Commande, Annulee, Confirmed, Preparation, Livraison, Livree
+}
+enum NaturePiece {	
+	Commande, Confcommande, Livraison
+}
+entity CommandeLignes {
+    quantite Double			// Quantité produit commandée
+    prixHT Double		// Prix unitaire HT
+    tva Double		// Valeur unit TVA
+    prixTTC Double		// Prix total TTC 
+    creeLe LocalDate 	// Créé le
+    creePar Integer 		// Créé par 
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par
+}
+entity Zone {
+    nom String 			// Nom de la zone créée 
+    creeLe LocalDate 	// Créé le
+    creePar Integer 		// Créé par 
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par
+}
+entity Livraison {	// Au moment de la création d'une nouvelle zone
+					// il faut automatiquement alimenter cette table 
+	categorieClient CatClient	// Catégorie client : Silver / Cold / Platinium
+	intervalValeur Double	// Interval valeur commande
+    frais Double			// Cout livraison
+	creeLe LocalDate 	// Créé le
+    creePar Integer 		// Créé par 
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par
+}
+
+entity CodePostaux {
+    gouvernorat String 
+    ville String 
+    localite String 
+    codePostal Integer
+    modifieLe LocalDate 	// mise à jour le
+    modifiePar Integer 		// mise à jour par
+}
+entity Images {
+    type ImgType 
+    image ImageBlob
+}
+enum ImgType {
+	Produit, Categorie, SousCategorie
+}
+entity Remise {
+	categorieClient CatClient
+	prixUnitaire	Double		// Prix Unitaire HT de base
+	remiseCategorie	Double		// Remise catégorie 
+    remisePromo Double		// Remise Promo
+    cumulable	Boolean		// Remise cumulable : remise catégorie + Remise promo ? 
+    debutPromo	LocalDate	// Date début promo
+    finPromo		LocalDate	// Date fin promo
+    creeLe LocalDate 		// Créé le
+    creePar Integer 			// Créé par 
+    modifieLe LocalDate 		// mise à jour le
+    modifiePar Integer 			// mise à jour par    
+}
+
+relationship OneToMany {
+Categorie 			to SousCategorie{Categorie(nom)},
+SousCategorie 		to Produit{SousCategorie(nom)},
+Produit 			to Stock{idProduit(id)},
+Categorie 			to Stock{idCategorie(id)},
+SousCategorie 		to Stock{idSousCategorie(id)},
+Produit 			to MouvementStock{idProduit(id)},
+Commande 			to MouvementStock{refCommande(reference)},
+Adresse 			to Client{client(id)},
+Client 				to Adresse{client(id)},
+Zone 				to Adresse{zone(id)},
+CodePostaux			to Adresse{codePostal(codePostal)},
+Client				to Commande{idClient(id)},
+Adresse				to Commande{idAdresse(id)},
+Commande			to CommandeLignes{commande(id)},
+Produit				to CommandeLignes{idProduit(id)},
+Zone				to Livraison{zone(nom)},
+Zone				to CodePostaux{zone(nom)},
+Produit				to Remise{idProduit(id)},
+Produit				to Images{idProduit(id)},
+Categorie			to Images{idCategorie(id)},
+SousCategorie		to Images{idSousCategorie(id)}
+}
+
+dto all with mapstruct except ProduitUnite, ProdEnumeration
+
+service * with serviceClass except ProduitUnite, ProdEnumeration

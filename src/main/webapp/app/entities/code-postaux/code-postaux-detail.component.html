@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="codePostaux">
+            <h2><span jhiTranslate="bazarv3App.codePostaux.detail.title">Code Postaux</span> {{ codePostaux.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.codePostaux.gouvernorat">Gouvernorat</span></dt>
+                <dd>
+                    <span>{{ codePostaux.gouvernorat }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.codePostaux.ville">Ville</span></dt>
+                <dd>
+                    <span>{{ codePostaux.ville }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.codePostaux.localite">Localite</span></dt>
+                <dd>
+                    <span>{{ codePostaux.localite }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.codePostaux.codePostal">Code Postal</span></dt>
+                <dd>
+                    <span>{{ codePostaux.codePostal }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.codePostaux.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ codePostaux.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.codePostaux.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ codePostaux.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.codePostaux.zone">Zone</span></dt>
+                <dd>
+                    <div *ngIf="codePostaux.zoneId">
+                        <a [routerLink]="['/zone', codePostaux.zoneId, 'view']">{{ codePostaux.zoneNom }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/code-postaux', codePostaux.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

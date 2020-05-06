@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-zone-heading" jhiTranslate="bazarv3App.zone.home.createOrEditLabel">Create or edit a Zone</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.zone.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.zone.creeLe" for="field_creeLe">Cree Le</label>
+                    <div class="input-group">
+                        <input id="field_creeLe" type="text" class="form-control" name="creeLe" ngbDatepicker #creeLeDp="ngbDatepicker" formControlName="creeLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="creeLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.zone.creePar" for="field_creePar">Cree Par</label>
+                    <input type="number" class="form-control" name="creePar" id="field_creePar"
+                           formControlName="creePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.zone.modifieLe" for="field_modifieLe">Modifie Le</label>
+                    <div class="input-group">
+                        <input id="field_modifieLe" type="text" class="form-control" name="modifieLe" ngbDatepicker #modifieLeDp="ngbDatepicker" formControlName="modifieLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifieLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.zone.modifiePar" for="field_modifiePar">Modifie Par</label>
+                    <input type="number" class="form-control" name="modifiePar" id="field_modifiePar"
+                           formControlName="modifiePar"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

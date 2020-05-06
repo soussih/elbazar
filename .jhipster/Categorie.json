@@ -1,0 +1,74 @@
+{
+    "name": "Categorie",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "sousCategorie",
+            "otherEntityRelationshipName": "categorie",
+            "relationshipName": "sousCategorie"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "stock",
+            "otherEntityRelationshipName": "idCategorie",
+            "relationshipName": "stock"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "images",
+            "otherEntityRelationshipName": "idCategorie",
+            "relationshipName": "images"
+        }
+    ],
+    "changelogDate": "20200503020500",
+    "entityTableName": "categorie",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Images",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "ImgType",
+            "fieldValues": "Produit,Categorie,SousCategorie"
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "images",
+            "relationshipName": "idProduit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categorie",
+            "otherEntityRelationshipName": "images",
+            "relationshipName": "idCategorie",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sousCategorie",
+            "otherEntityRelationshipName": "images",
+            "relationshipName": "idSousCategorie",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200503021900",
+    "entityTableName": "images",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,10 @@
+{
+  "bazarv3App": {
+    "NaturePiece": {
+      "null": "",
+      "Commande": "Commande",
+      "Confcommande": "Confcommande",
+      "Livraison": "Livraison"
+    }
+  }
+}

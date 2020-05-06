@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commande">
+            <h2><span jhiTranslate="bazarv3App.commande.detail.title">Commande</span> {{ commande.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.commande.reference">Reference</span></dt>
+                <dd>
+                    <span>{{ commande.reference }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.date">Date</span></dt>
+                <dd>
+                    <span>{{ commande.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.statut">Statut</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.StatCmd.' + commande.statut }}">{{ commande.statut }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.naturePiece">Nature Piece</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.NaturePiece.' + commande.naturePiece }}">{{ commande.naturePiece }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.totalHT">Total HT</span></dt>
+                <dd>
+                    <span>{{ commande.totalHT }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.totalTVA">Total TVA</span></dt>
+                <dd>
+                    <span>{{ commande.totalTVA }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.totalRemise">Total Remise</span></dt>
+                <dd>
+                    <span>{{ commande.totalRemise }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.totTTC">Tot TTC</span></dt>
+                <dd>
+                    <span>{{ commande.totTTC }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.zone">Zone</span></dt>
+                <dd>
+                    <span>{{ commande.zone }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.dateLivraison">Date Livraison</span></dt>
+                <dd>
+                    <span>{{ commande.dateLivraison }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ commande.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ commande.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ commande.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ commande.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.idClient">Id Client</span></dt>
+                <dd>
+                    <div *ngIf="commande.idClientId">
+                        <a [routerLink]="['/client', commande.idClientId, 'view']">{{ commande.idClientId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commande.idAdresse">Id Adresse</span></dt>
+                <dd>
+                    <div *ngIf="commande.idAdresseId">
+                        <a [routerLink]="['/adresse', commande.idAdresseId, 'view']">{{ commande.idAdresseId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commande', commande.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

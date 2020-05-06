@@ -1,0 +1,42 @@
+{
+  "bazarv3App": {
+    "adresse": {
+      "home": {
+        "title": "Adresses",
+        "createLabel": "Créer un nouveau Adresse",
+        "createOrEditLabel": "Créer ou éditer un Adresse",
+        "search": "Recherche pour Adresse",
+        "notFound": "Aucun Adresse trouvé"
+      },
+      "created": "Un nouveau Adresse a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Adresse avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Adresse avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Adresse {{ id }} ?"
+      },
+      "detail": {
+        "title": "Adresse"
+      },
+      "principale": "Principale",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "adresseLigne1": "Adresse Ligne 1",
+      "adresseLigne2": "Adresse Ligne 2",
+      "gouvernorat": "Gouvernorat",
+      "ville": "Ville",
+      "cite": "Cite",
+      "indication": "Indication",
+      "telephone": "Telephone",
+      "mobile": "Mobile",
+      "creeLe": "Cree Le",
+      "creePar": "Cree Par",
+      "modifieLe": "Modifie Le",
+      "modifiePar": "Modifie Par",
+      "client": "Client",
+      "commande": "Commande",
+      "client": "Client",
+      "zone": "Zone",
+      "codePostal": "Code Postal"
+    }
+  }
+}

@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-remise-heading" jhiTranslate="bazarv3App.remise.home.createOrEditLabel">Create or edit a Remise</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.categorieClient" for="field_categorieClient">Categorie Client</label>
+                    <select class="form-control" name="categorieClient" formControlName="categorieClient" id="field_categorieClient">
+                        <option value="Silver">{{ 'bazarv3App.CatClient.Silver' | translate }}</option>
+                        <option value="Gold">{{ 'bazarv3App.CatClient.Gold' | translate }}</option>
+                        <option value="Platinium">{{ 'bazarv3App.CatClient.Platinium' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.prixUnitaire" for="field_prixUnitaire">Prix Unitaire</label>
+                    <input type="number" class="form-control" name="prixUnitaire" id="field_prixUnitaire"
+                           formControlName="prixUnitaire"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.remiseCategorie" for="field_remiseCategorie">Remise Categorie</label>
+                    <input type="number" class="form-control" name="remiseCategorie" id="field_remiseCategorie"
+                           formControlName="remiseCategorie"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.remisePromo" for="field_remisePromo">Remise Promo</label>
+                    <input type="number" class="form-control" name="remisePromo" id="field_remisePromo"
+                           formControlName="remisePromo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.cumulable" for="field_cumulable">Cumulable</label>
+                    <input type="checkbox" class="form-control" name="cumulable" id="field_cumulable"
+                           formControlName="cumulable"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.debutPromo" for="field_debutPromo">Debut Promo</label>
+                    <div class="input-group">
+                        <input id="field_debutPromo" type="text" class="form-control" name="debutPromo" ngbDatepicker #debutPromoDp="ngbDatepicker" formControlName="debutPromo"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="debutPromoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.finPromo" for="field_finPromo">Fin Promo</label>
+                    <div class="input-group">
+                        <input id="field_finPromo" type="text" class="form-control" name="finPromo" ngbDatepicker #finPromoDp="ngbDatepicker" formControlName="finPromo"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="finPromoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.creeLe" for="field_creeLe">Cree Le</label>
+                    <div class="input-group">
+                        <input id="field_creeLe" type="text" class="form-control" name="creeLe" ngbDatepicker #creeLeDp="ngbDatepicker" formControlName="creeLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="creeLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.creePar" for="field_creePar">Cree Par</label>
+                    <input type="number" class="form-control" name="creePar" id="field_creePar"
+                           formControlName="creePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.modifieLe" for="field_modifieLe">Modifie Le</label>
+                    <div class="input-group">
+                        <input id="field_modifieLe" type="text" class="form-control" name="modifieLe" ngbDatepicker #modifieLeDp="ngbDatepicker" formControlName="modifieLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifieLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.modifiePar" for="field_modifiePar">Modifie Par</label>
+                    <input type="number" class="form-control" name="modifiePar" id="field_modifiePar"
+                           formControlName="modifiePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.remise.idProduit" for="field_idProduit">Id Produit</label>
+                    <select class="form-control" id="field_idProduit" name="idProduit" formControlName="idProduitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produitOption.id" *ngFor="let produitOption of produits; trackBy: trackById">{{ produitOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

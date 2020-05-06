@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="produit">
+            <h2><span jhiTranslate="bazarv3App.produit.detail.title">Produit</span> {{ produit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.produit.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ produit.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.codeBarre">Code Barre</span></dt>
+                <dd>
+                    <span>{{ produit.codeBarre }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.description">Description</span></dt>
+                <dd>
+                    <span>{{ produit.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.etat">Etat</span></dt>
+                <dd>
+                    <span>{{ produit.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.unite">Unite</span></dt>
+                <dd>
+                    <span>{{ produit.unite }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.marque">Marque</span></dt>
+                <dd>
+                    <span>{{ produit.marque }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.nature">Nature</span></dt>
+                <dd>
+                    <span>{{ produit.nature }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.stockMinimum">Stock Minimum</span></dt>
+                <dd>
+                    <span>{{ produit.stockMinimum }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.quantiteVenteMax">Quantite Vente Max</span></dt>
+                <dd>
+                    <span>{{ produit.quantiteVenteMax }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.datePremption">Date Premption</span></dt>
+                <dd>
+                    <span>{{ produit.datePremption }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.prixUnitaireHT">Prix Unitaire HT</span></dt>
+                <dd>
+                    <span>{{ produit.prixUnitaireHT }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.tauxTva">Taux Tva</span></dt>
+                <dd>
+                    <span>{{ produit.tauxTva }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.prixTtc">Prix Ttc</span></dt>
+                <dd>
+                    <span>{{ produit.prixTtc }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.sourceProduit">Source Produit</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.SourcePrd.' + produit.sourceProduit }}">{{ produit.sourceProduit }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.horsStock">Hors Stock</span></dt>
+                <dd>
+                    <span>{{ produit.horsStock }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.rating">Rating</span></dt>
+                <dd>
+                    <span>{{ produit.rating }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.remise">Remise</span></dt>
+                <dd>
+                    <span>{{ produit.remise }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ produit.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ produit.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ produit.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ produit.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.produit.sousCategorie">Sous Categorie</span></dt>
+                <dd>
+                    <div *ngIf="produit.sousCategorieId">
+                        <a [routerLink]="['/sous-categorie', produit.sousCategorieId, 'view']">{{ produit.sousCategorieNom }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/produit', produit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

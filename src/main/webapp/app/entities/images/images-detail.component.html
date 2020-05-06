@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="images">
+            <h2><span jhiTranslate="bazarv3App.images.detail.title">Images</span> {{ images.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.images.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.ImgType.' + images.type }}">{{ images.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.images.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="images.image">
+                        <a (click)="openFile(images?.imageContentType!, images?.image)">
+                            <img [src]="'data:' + images.imageContentType + ';base64,' + images.image" style="max-width: 100%;" alt="images image"/>
+                        </a>
+                        {{ images.imageContentType }}, {{ byteSize(images.image) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.images.idProduit">Id Produit</span></dt>
+                <dd>
+                    <div *ngIf="images.idProduitId">
+                        <a [routerLink]="['/produit', images.idProduitId, 'view']">{{ images.idProduitId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.images.idCategorie">Id Categorie</span></dt>
+                <dd>
+                    <div *ngIf="images.idCategorieId">
+                        <a [routerLink]="['/categorie', images.idCategorieId, 'view']">{{ images.idCategorieId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.images.idSousCategorie">Id Sous Categorie</span></dt>
+                <dd>
+                    <div *ngIf="images.idSousCategorieId">
+                        <a [routerLink]="['/sous-categorie', images.idSousCategorieId, 'view']">{{ images.idSousCategorieId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/images', images.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

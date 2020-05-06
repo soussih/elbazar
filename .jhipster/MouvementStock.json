@@ -1,0 +1,65 @@
+{
+    "name": "MouvementStock",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "TypeMvt",
+            "fieldValues": "Stock,Commande"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "sens",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "mouvementStock",
+            "relationshipName": "idProduit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "mouvementStock",
+            "relationshipName": "refCommande",
+            "otherEntityField": "reference"
+        }
+    ],
+    "changelogDate": "20200503021100",
+    "entityTableName": "mouvement_stock",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

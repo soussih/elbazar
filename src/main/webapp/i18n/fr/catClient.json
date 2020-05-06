@@ -1,0 +1,10 @@
+{
+  "bazarv3App": {
+    "CatClient": {
+      "null": "",
+      "Silver": "Silver",
+      "Gold": "Gold",
+      "Platinium": "Platinium"
+    }
+  }
+}

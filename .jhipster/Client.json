@@ -1,0 +1,125 @@
+{
+    "name": "Client",
+    "fields": [
+        {
+            "fieldName": "civilite",
+            "fieldType": "Civilite",
+            "fieldValues": "M,Mme",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateDeNaissance",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "reglement",
+            "fieldType": "RegMod",
+            "fieldValues": "Cartebancaire,Cash,Cheque"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "derniereVisite",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "totalAchat",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "categorie",
+            "fieldType": "CatClient",
+            "fieldValues": "Silver,Gold,Platinium",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pointsFidelite",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "adresse",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "adresse"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "idClient",
+            "relationshipName": "commande"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "adresse",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "client",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200503021200",
+    "entityTableName": "client",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

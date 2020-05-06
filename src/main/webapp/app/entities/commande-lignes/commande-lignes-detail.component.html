@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commandeLignes">
+            <h2><span jhiTranslate="bazarv3App.commandeLignes.detail.title">Commande Lignes</span> {{ commandeLignes.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ commandeLignes.quantite }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.prixHT">Prix HT</span></dt>
+                <dd>
+                    <span>{{ commandeLignes.prixHT }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.tva">Tva</span></dt>
+                <dd>
+                    <span>{{ commandeLignes.tva }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.prixTTC">Prix TTC</span></dt>
+                <dd>
+                    <span>{{ commandeLignes.prixTTC }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ commandeLignes.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ commandeLignes.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ commandeLignes.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ commandeLignes.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.commande">Commande</span></dt>
+                <dd>
+                    <div *ngIf="commandeLignes.commandeId">
+                        <a [routerLink]="['/commande', commandeLignes.commandeId, 'view']">{{ commandeLignes.commandeId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.commandeLignes.idProduit">Id Produit</span></dt>
+                <dd>
+                    <div *ngIf="commandeLignes.idProduitId">
+                        <a [routerLink]="['/produit', commandeLignes.idProduitId, 'view']">{{ commandeLignes.idProduitId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commande-lignes', commandeLignes.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

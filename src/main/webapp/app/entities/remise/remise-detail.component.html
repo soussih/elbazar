@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="remise">
+            <h2><span jhiTranslate="bazarv3App.remise.detail.title">Remise</span> {{ remise.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.remise.categorieClient">Categorie Client</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.CatClient.' + remise.categorieClient }}">{{ remise.categorieClient }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.prixUnitaire">Prix Unitaire</span></dt>
+                <dd>
+                    <span>{{ remise.prixUnitaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.remiseCategorie">Remise Categorie</span></dt>
+                <dd>
+                    <span>{{ remise.remiseCategorie }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.remisePromo">Remise Promo</span></dt>
+                <dd>
+                    <span>{{ remise.remisePromo }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.cumulable">Cumulable</span></dt>
+                <dd>
+                    <span>{{ remise.cumulable }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.debutPromo">Debut Promo</span></dt>
+                <dd>
+                    <span>{{ remise.debutPromo }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.finPromo">Fin Promo</span></dt>
+                <dd>
+                    <span>{{ remise.finPromo }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ remise.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ remise.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ remise.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ remise.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.remise.idProduit">Id Produit</span></dt>
+                <dd>
+                    <div *ngIf="remise.idProduitId">
+                        <a [routerLink]="['/produit', remise.idProduitId, 'view']">{{ remise.idProduitId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/remise', remise.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

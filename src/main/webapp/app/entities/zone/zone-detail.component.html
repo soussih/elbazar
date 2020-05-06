@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="zone">
+            <h2><span jhiTranslate="bazarv3App.zone.detail.title">Zone</span> {{ zone.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.zone.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ zone.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.zone.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ zone.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.zone.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ zone.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.zone.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ zone.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.zone.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ zone.modifiePar }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/zone', zone.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

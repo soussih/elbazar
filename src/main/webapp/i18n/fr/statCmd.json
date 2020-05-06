@@ -1,0 +1,13 @@
+{
+  "bazarv3App": {
+    "StatCmd": {
+      "null": "",
+      "Commande": "Commande",
+      "Annulee": "Annulee",
+      "Confirmed": "Confirmed",
+      "Preparation": "Preparation",
+      "Livraison": "Livraison",
+      "Livree": "Livree"
+    }
+  }
+}

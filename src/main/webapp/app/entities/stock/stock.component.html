@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="bazarv3App.stock.home.title">Stocks</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-stock" [routerLink]="['/stock/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="bazarv3App.stock.home.createLabel">
+            Create a new Stock
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'bazarv3App.stock.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="stocks?.length === 0">
+        <span jhiTranslate="bazarv3App.stock.home.notFound">No stocks found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="stocks?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.stockPhysique">Stock Physique</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.stockDisponible">Stock Disponible</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.stockReserve">Stock Reserve</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.stockCommande">Stock Commande</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.derniereEntre">Derniere Entre</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.derniereSortie">Derniere Sortie</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.alerteStock">Alerte Stock</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.creeLe">Cree Le</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.creePar">Cree Par</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.modifieLe">Modifie Le</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.modifiePar">Modifie Par</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.idProduit">Id Produit</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.idCategorie">Id Categorie</span></th>
+                    <th scope="col" ><span jhiTranslate="bazarv3App.stock.idSousCategorie">Id Sous Categorie</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stock of stocks ;trackBy: trackId">
+                    <td><a [routerLink]="['/stock', stock.id, 'view']">{{ stock.id }}</a></td>
+                    <td>{{ stock.stockPhysique }}</td>
+                    <td>{{ stock.stockDisponible }}</td>
+                    <td>{{ stock.stockReserve }}</td>
+                    <td>{{ stock.stockCommande }}</td>
+                    <td>{{ stock.derniereEntre | date:'mediumDate' }}</td>
+                    <td>{{ stock.derniereSortie | date:'mediumDate' }}</td>
+                    <td>{{ stock.alerteStock }}</td>
+                    <td>{{ stock.creeLe | date:'mediumDate' }}</td>
+                    <td>{{ stock.creePar }}</td>
+                    <td>{{ stock.modifieLe | date:'mediumDate' }}</td>
+                    <td>{{ stock.modifiePar }}</td>
+                    <td>
+                        <div *ngIf="stock.idProduitId">
+                            <a [routerLink]="['/produit', stock.idProduitId , 'view']" >{{ stock.idProduitId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="stock.idCategorieId">
+                            <a [routerLink]="['/categorie', stock.idCategorieId , 'view']" >{{ stock.idCategorieId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="stock.idSousCategorieId">
+                            <a [routerLink]="['/sous-categorie', stock.idSousCategorieId , 'view']" >{{ stock.idSousCategorieId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/stock', stock.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/stock', stock.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(stock)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

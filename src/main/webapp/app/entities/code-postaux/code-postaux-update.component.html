@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-code-postaux-heading" jhiTranslate="bazarv3App.codePostaux.home.createOrEditLabel">Create or edit a Code Postaux</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.codePostaux.gouvernorat" for="field_gouvernorat">Gouvernorat</label>
+                    <input type="text" class="form-control" name="gouvernorat" id="field_gouvernorat"
+                           formControlName="gouvernorat"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.codePostaux.ville" for="field_ville">Ville</label>
+                    <input type="text" class="form-control" name="ville" id="field_ville"
+                           formControlName="ville"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.codePostaux.localite" for="field_localite">Localite</label>
+                    <input type="text" class="form-control" name="localite" id="field_localite"
+                           formControlName="localite"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.codePostaux.codePostal" for="field_codePostal">Code Postal</label>
+                    <input type="number" class="form-control" name="codePostal" id="field_codePostal"
+                           formControlName="codePostal"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.codePostaux.modifieLe" for="field_modifieLe">Modifie Le</label>
+                    <div class="input-group">
+                        <input id="field_modifieLe" type="text" class="form-control" name="modifieLe" ngbDatepicker #modifieLeDp="ngbDatepicker" formControlName="modifieLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifieLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.codePostaux.modifiePar" for="field_modifiePar">Modifie Par</label>
+                    <input type="number" class="form-control" name="modifiePar" id="field_modifiePar"
+                           formControlName="modifiePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.codePostaux.zone" for="field_zone">Zone</label>
+                    <select class="form-control" id="field_zone" name="zone" formControlName="zoneId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="zoneOption.id" *ngFor="let zoneOption of zones; trackBy: trackById">{{ zoneOption.nom }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

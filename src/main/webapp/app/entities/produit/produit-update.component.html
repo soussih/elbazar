@@ -1,0 +1,198 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-produit-heading" jhiTranslate="bazarv3App.produit.home.createOrEditLabel">Create or edit a Produit</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                    <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.codeBarre" for="field_codeBarre">Code Barre</label>
+                    <input type="number" class="form-control" name="codeBarre" id="field_codeBarre"
+                           formControlName="codeBarre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.etat" for="field_etat">Etat</label>
+                    <input type="checkbox" class="form-control" name="etat" id="field_etat"
+                           formControlName="etat"/>
+                    <div *ngIf="editForm.get('etat')!.invalid && (editForm.get('etat')!.dirty || editForm.get('etat')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etat')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.unite" for="field_unite">Unite</label>
+                    <input type="text" class="form-control" name="unite" id="field_unite"
+                           formControlName="unite"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.marque" for="field_marque">Marque</label>
+                    <input type="text" class="form-control" name="marque" id="field_marque"
+                           formControlName="marque"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.nature" for="field_nature">Nature</label>
+                    <input type="text" class="form-control" name="nature" id="field_nature"
+                           formControlName="nature"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.stockMinimum" for="field_stockMinimum">Stock Minimum</label>
+                    <input type="number" class="form-control" name="stockMinimum" id="field_stockMinimum"
+                           formControlName="stockMinimum"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.quantiteVenteMax" for="field_quantiteVenteMax">Quantite Vente Max</label>
+                    <input type="number" class="form-control" name="quantiteVenteMax" id="field_quantiteVenteMax"
+                           formControlName="quantiteVenteMax"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.datePremption" for="field_datePremption">Date Premption</label>
+                    <div class="input-group">
+                        <input id="field_datePremption" type="text" class="form-control" name="datePremption" ngbDatepicker #datePremptionDp="ngbDatepicker" formControlName="datePremption"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datePremptionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.prixUnitaireHT" for="field_prixUnitaireHT">Prix Unitaire HT</label>
+                    <input type="number" class="form-control" name="prixUnitaireHT" id="field_prixUnitaireHT"
+                           formControlName="prixUnitaireHT"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.tauxTva" for="field_tauxTva">Taux Tva</label>
+                    <input type="number" class="form-control" name="tauxTva" id="field_tauxTva"
+                           formControlName="tauxTva"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.prixTtc" for="field_prixTtc">Prix Ttc</label>
+                    <input type="number" class="form-control" name="prixTtc" id="field_prixTtc"
+                           formControlName="prixTtc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.sourceProduit" for="field_sourceProduit">Source Produit</label>
+                    <select class="form-control" name="sourceProduit" formControlName="sourceProduit" id="field_sourceProduit">
+                        <option value="Locale">{{ 'bazarv3App.SourcePrd.Locale' | translate }}</option>
+                        <option value="Externe">{{ 'bazarv3App.SourcePrd.Externe' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('sourceProduit')!.invalid && (editForm.get('sourceProduit')!.dirty || editForm.get('sourceProduit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sourceProduit')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.horsStock" for="field_horsStock">Hors Stock</label>
+                    <input type="checkbox" class="form-control" name="horsStock" id="field_horsStock"
+                           formControlName="horsStock"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.rating" for="field_rating">Rating</label>
+                    <input type="text" class="form-control" name="rating" id="field_rating"
+                           formControlName="rating"/>
+                    <div *ngIf="editForm.get('rating')!.invalid && (editForm.get('rating')!.dirty || editForm.get('rating')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('rating')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Rating' }">
+                            This field should follow pattern for "Rating".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.remise" for="field_remise">Remise</label>
+                    <input type="number" class="form-control" name="remise" id="field_remise"
+                           formControlName="remise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.creeLe" for="field_creeLe">Cree Le</label>
+                    <div class="input-group">
+                        <input id="field_creeLe" type="text" class="form-control" name="creeLe" ngbDatepicker #creeLeDp="ngbDatepicker" formControlName="creeLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="creeLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.creePar" for="field_creePar">Cree Par</label>
+                    <input type="number" class="form-control" name="creePar" id="field_creePar"
+                           formControlName="creePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.modifieLe" for="field_modifieLe">Modifie Le</label>
+                    <div class="input-group">
+                        <input id="field_modifieLe" type="text" class="form-control" name="modifieLe" ngbDatepicker #modifieLeDp="ngbDatepicker" formControlName="modifieLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifieLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.modifiePar" for="field_modifiePar">Modifie Par</label>
+                    <input type="number" class="form-control" name="modifiePar" id="field_modifiePar"
+                           formControlName="modifiePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.produit.sousCategorie" for="field_sousCategorie">Sous Categorie</label>
+                    <select class="form-control" id="field_sousCategorie" name="sousCategorie" formControlName="sousCategorieId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sousCategorieOption.id" *ngFor="let sousCategorieOption of souscategories; trackBy: trackById">{{ sousCategorieOption.nom }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

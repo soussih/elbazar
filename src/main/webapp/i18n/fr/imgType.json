@@ -1,0 +1,10 @@
+{
+  "bazarv3App": {
+    "ImgType": {
+      "null": "",
+      "Produit": "Produit",
+      "Categorie": "Categorie",
+      "SousCategorie": "SousCategorie"
+    }
+  }
+}

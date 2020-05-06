@@ -1,0 +1,9 @@
+{
+  "bazarv3App": {
+    "TypeMvt": {
+      "null": "",
+      "Stock": "Stock",
+      "Commande": "Commande"
+    }
+  }
+}

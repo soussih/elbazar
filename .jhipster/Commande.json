@@ -1,0 +1,106 @@
+{
+    "name": "Commande",
+    "fields": [
+        {
+            "fieldName": "reference",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^[a-zA-Z0-9]{0,12}$"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "statut",
+            "fieldType": "StatCmd",
+            "fieldValues": "Commande,Annulee,Confirmed,Preparation,Livraison,Livree"
+        },
+        {
+            "fieldName": "naturePiece",
+            "fieldType": "NaturePiece",
+            "fieldValues": "Commande,Confcommande,Livraison"
+        },
+        {
+            "fieldName": "totalHT",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totalTVA",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totalRemise",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totTTC",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "zone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateLivraison",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mouvementStock",
+            "otherEntityRelationshipName": "refCommande",
+            "relationshipName": "mouvementStock"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "commandeLignes",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "commandeLignes"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "idClient",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "adresse",
+            "otherEntityRelationshipName": "commande",
+            "relationshipName": "idAdresse",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200503021400",
+    "entityTableName": "commande",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

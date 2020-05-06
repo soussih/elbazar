@@ -1,0 +1,132 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-stock-heading" jhiTranslate="bazarv3App.stock.home.createOrEditLabel">Create or edit a Stock</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.stockPhysique" for="field_stockPhysique">Stock Physique</label>
+                    <input type="number" class="form-control" name="stockPhysique" id="field_stockPhysique"
+                           formControlName="stockPhysique"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.stockDisponible" for="field_stockDisponible">Stock Disponible</label>
+                    <input type="number" class="form-control" name="stockDisponible" id="field_stockDisponible"
+                           formControlName="stockDisponible"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.stockReserve" for="field_stockReserve">Stock Reserve</label>
+                    <input type="number" class="form-control" name="stockReserve" id="field_stockReserve"
+                           formControlName="stockReserve"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.stockCommande" for="field_stockCommande">Stock Commande</label>
+                    <input type="number" class="form-control" name="stockCommande" id="field_stockCommande"
+                           formControlName="stockCommande"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.derniereEntre" for="field_derniereEntre">Derniere Entre</label>
+                    <div class="input-group">
+                        <input id="field_derniereEntre" type="text" class="form-control" name="derniereEntre" ngbDatepicker #derniereEntreDp="ngbDatepicker" formControlName="derniereEntre"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="derniereEntreDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.derniereSortie" for="field_derniereSortie">Derniere Sortie</label>
+                    <div class="input-group">
+                        <input id="field_derniereSortie" type="text" class="form-control" name="derniereSortie" ngbDatepicker #derniereSortieDp="ngbDatepicker" formControlName="derniereSortie"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="derniereSortieDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.alerteStock" for="field_alerteStock">Alerte Stock</label>
+                    <input type="checkbox" class="form-control" name="alerteStock" id="field_alerteStock"
+                           formControlName="alerteStock"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.creeLe" for="field_creeLe">Cree Le</label>
+                    <div class="input-group">
+                        <input id="field_creeLe" type="text" class="form-control" name="creeLe" ngbDatepicker #creeLeDp="ngbDatepicker" formControlName="creeLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="creeLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.creePar" for="field_creePar">Cree Par</label>
+                    <input type="number" class="form-control" name="creePar" id="field_creePar"
+                           formControlName="creePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.modifieLe" for="field_modifieLe">Modifie Le</label>
+                    <div class="input-group">
+                        <input id="field_modifieLe" type="text" class="form-control" name="modifieLe" ngbDatepicker #modifieLeDp="ngbDatepicker" formControlName="modifieLe"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="modifieLeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.modifiePar" for="field_modifiePar">Modifie Par</label>
+                    <input type="number" class="form-control" name="modifiePar" id="field_modifiePar"
+                           formControlName="modifiePar"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.idProduit" for="field_idProduit">Id Produit</label>
+                    <select class="form-control" id="field_idProduit" name="idProduit" formControlName="idProduitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="produitOption.id" *ngFor="let produitOption of produits; trackBy: trackById">{{ produitOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.idCategorie" for="field_idCategorie">Id Categorie</label>
+                    <select class="form-control" id="field_idCategorie" name="idCategorie" formControlName="idCategorieId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categorieOption.id" *ngFor="let categorieOption of categories; trackBy: trackById">{{ categorieOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bazarv3App.stock.idSousCategorie" for="field_idSousCategorie">Id Sous Categorie</label>
+                    <select class="form-control" id="field_idSousCategorie" name="idSousCategorie" formControlName="idSousCategorieId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sousCategorieOption.id" *ngFor="let sousCategorieOption of souscategories; trackBy: trackById">{{ sousCategorieOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

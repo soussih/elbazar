@@ -1,0 +1,83 @@
+{
+    "name": "Stock",
+    "fields": [
+        {
+            "fieldName": "stockPhysique",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "stockDisponible",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "stockReserve",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "stockCommande",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "derniereEntre",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "derniereSortie",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "alerteStock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "stock",
+            "relationshipName": "idProduit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "categorie",
+            "otherEntityRelationshipName": "stock",
+            "relationshipName": "idCategorie",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sousCategorie",
+            "otherEntityRelationshipName": "stock",
+            "relationshipName": "idSousCategorie",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200503021000",
+    "entityTableName": "stock",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

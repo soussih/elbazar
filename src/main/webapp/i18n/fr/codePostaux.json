@@ -1,0 +1,30 @@
+{
+  "bazarv3App": {
+    "codePostaux": {
+      "home": {
+        "title": "CodePostauxes",
+        "createLabel": "Créer un nouveau Code Postaux",
+        "createOrEditLabel": "Créer ou éditer un Code Postaux",
+        "search": "Recherche pour Code Postaux",
+        "notFound": "Aucun Code Postaux trouvé"
+      },
+      "created": "Un nouveau Code Postaux a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Code Postaux avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Code Postaux avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Code Postaux {{ id }} ?"
+      },
+      "detail": {
+        "title": "Code Postaux"
+      },
+      "gouvernorat": "Gouvernorat",
+      "ville": "Ville",
+      "localite": "Localite",
+      "codePostal": "Code Postal",
+      "modifieLe": "Modifie Le",
+      "modifiePar": "Modifie Par",
+      "adresse": "Adresse",
+      "zone": "Zone"
+    }
+  }
+}

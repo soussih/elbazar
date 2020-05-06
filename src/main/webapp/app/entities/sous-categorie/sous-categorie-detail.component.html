@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sousCategorie">
+            <h2><span jhiTranslate="bazarv3App.sousCategorie.detail.title">Sous Categorie</span> {{ sousCategorie.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ sousCategorie.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.description">Description</span></dt>
+                <dd>
+                    <span>{{ sousCategorie.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.position">Position</span></dt>
+                <dd>
+                    <span>{{ sousCategorie.position }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.etat">Etat</span></dt>
+                <dd>
+                    <span>{{ sousCategorie.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ sousCategorie.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ sousCategorie.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ sousCategorie.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ sousCategorie.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.sousCategorie.categorie">Categorie</span></dt>
+                <dd>
+                    <div *ngIf="sousCategorie.categorieId">
+                        <a [routerLink]="['/categorie', sousCategorie.categorieId, 'view']">{{ sousCategorie.categorieNom }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sous-categorie', sousCategorie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

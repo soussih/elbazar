@@ -1,0 +1,11 @@
+{
+  "bazarv3App": {
+    "ProdEnum": {
+      "null": "",
+      "Marque": "Marque",
+      "Classe": "Classe",
+      "Nature": "Nature",
+      "Collection": "Collection"
+    }
+  }
+}

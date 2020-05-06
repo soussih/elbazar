@@ -1,0 +1,21 @@
+{
+    "name": "ProduitUnite",
+    "fields": [
+        {
+            "fieldName": "prdunite",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200503020900",
+    "entityTableName": "produit_unite",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

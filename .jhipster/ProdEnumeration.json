@@ -1,0 +1,26 @@
+{
+    "name": "ProdEnumeration",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "ProdEnum",
+            "fieldValues": "Marque,Classe,Nature,Collection"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200503020800",
+    "entityTableName": "prod_enumeration",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,153 @@
+{
+    "name": "Produit",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codeBarre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "unite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "marque",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nature",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stockMinimum",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "quantiteVenteMax",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "datePremption",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "prixUnitaireHT",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "tauxTva",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "prixTtc",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "sourceProduit",
+            "fieldType": "SourcePrd",
+            "fieldValues": "Locale,Externe",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "horsStock",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^[1-5]$"
+        },
+        {
+            "fieldName": "remise",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "stock",
+            "otherEntityRelationshipName": "idProduit",
+            "relationshipName": "stock"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mouvementStock",
+            "otherEntityRelationshipName": "idProduit",
+            "relationshipName": "mouvementStock"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "commandeLignes",
+            "otherEntityRelationshipName": "idProduit",
+            "relationshipName": "commandeLignes"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "remise",
+            "otherEntityRelationshipName": "idProduit",
+            "relationshipName": "remise"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "images",
+            "otherEntityRelationshipName": "idProduit",
+            "relationshipName": "images"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "sousCategorie",
+            "otherEntityRelationshipName": "produit",
+            "relationshipName": "sousCategorie",
+            "otherEntityField": "nom"
+        }
+    ],
+    "changelogDate": "20200503020700",
+    "entityTableName": "produit",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

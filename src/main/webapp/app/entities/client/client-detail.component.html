@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="client">
+            <h2><span jhiTranslate="bazarv3App.client.detail.title">Client</span> {{ client.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.client.civilite">Civilite</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.Civilite.' + client.civilite }}">{{ client.civilite }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ client.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ client.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.dateDeNaissance">Date De Naissance</span></dt>
+                <dd>
+                    <span>{{ client.dateDeNaissance }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.email">Email</span></dt>
+                <dd>
+                    <span>{{ client.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.mobile">Mobile</span></dt>
+                <dd>
+                    <span>{{ client.mobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.reglement">Reglement</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.RegMod.' + client.reglement }}">{{ client.reglement }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.etat">Etat</span></dt>
+                <dd>
+                    <span>{{ client.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.derniereVisite">Derniere Visite</span></dt>
+                <dd>
+                    <span>{{ client.derniereVisite }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.totalAchat">Total Achat</span></dt>
+                <dd>
+                    <span>{{ client.totalAchat }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.categorie">Categorie</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.CatClient.' + client.categorie }}">{{ client.categorie }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.pointsFidelite">Points Fidelite</span></dt>
+                <dd>
+                    <span>{{ client.pointsFidelite }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ client.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ client.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ client.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ client.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.client.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="client.clientId">
+                        <a [routerLink]="['/adresse', client.clientId, 'view']">{{ client.clientId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/client', client.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+{
+    "name": "Adresse",
+    "fields": [
+        {
+            "fieldName": "principale",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "adresseLigne1",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "adresseLigne2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "gouvernorat",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ville",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "indication",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telephone",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "client",
+            "relationshipName": "client"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "idAdresse",
+            "relationshipName": "commande"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "adresse",
+            "relationshipName": "client",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "zone",
+            "otherEntityRelationshipName": "adresse",
+            "relationshipName": "zone",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "codePostaux",
+            "otherEntityRelationshipName": "adresse",
+            "relationshipName": "codePostal",
+            "otherEntityField": "codePostal"
+        }
+    ],
+    "changelogDate": "20200503021300",
+    "entityTableName": "adresse",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mouvementStock">
+            <h2><span jhiTranslate="bazarv3App.mouvementStock.detail.title">Mouvement Stock</span> {{ mouvementStock.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bazarv3App.TypeMvt.' + mouvementStock.type }}">{{ mouvementStock.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.date">Date</span></dt>
+                <dd>
+                    <span>{{ mouvementStock.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.sens">Sens</span></dt>
+                <dd>
+                    <span>{{ mouvementStock.sens }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.quantite">Quantite</span></dt>
+                <dd>
+                    <span>{{ mouvementStock.quantite }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ mouvementStock.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ mouvementStock.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ mouvementStock.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ mouvementStock.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.idProduit">Id Produit</span></dt>
+                <dd>
+                    <div *ngIf="mouvementStock.idProduitId">
+                        <a [routerLink]="['/produit', mouvementStock.idProduitId, 'view']">{{ mouvementStock.idProduitId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.mouvementStock.refCommande">Ref Commande</span></dt>
+                <dd>
+                    <div *ngIf="mouvementStock.refCommandeId">
+                        <a [routerLink]="['/commande', mouvementStock.refCommandeId, 'view']">{{ mouvementStock.refCommandeReference }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mouvement-stock', mouvementStock.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

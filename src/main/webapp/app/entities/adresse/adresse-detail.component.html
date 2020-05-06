@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adresse">
+            <h2><span jhiTranslate="bazarv3App.adresse.detail.title">Adresse</span> {{ adresse.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.adresse.principale">Principale</span></dt>
+                <dd>
+                    <span>{{ adresse.principale }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ adresse.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ adresse.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.adresseLigne1">Adresse Ligne 1</span></dt>
+                <dd>
+                    <span>{{ adresse.adresseLigne1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.adresseLigne2">Adresse Ligne 2</span></dt>
+                <dd>
+                    <span>{{ adresse.adresseLigne2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.gouvernorat">Gouvernorat</span></dt>
+                <dd>
+                    <span>{{ adresse.gouvernorat }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.ville">Ville</span></dt>
+                <dd>
+                    <span>{{ adresse.ville }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.cite">Cite</span></dt>
+                <dd>
+                    <span>{{ adresse.cite }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.indication">Indication</span></dt>
+                <dd>
+                    <span>{{ adresse.indication }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ adresse.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.mobile">Mobile</span></dt>
+                <dd>
+                    <span>{{ adresse.mobile }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ adresse.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ adresse.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ adresse.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ adresse.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="adresse.clientId">
+                        <a [routerLink]="['/client', adresse.clientId, 'view']">{{ adresse.clientId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.zone">Zone</span></dt>
+                <dd>
+                    <div *ngIf="adresse.zoneId">
+                        <a [routerLink]="['/zone', adresse.zoneId, 'view']">{{ adresse.zoneId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.adresse.codePostal">Code Postal</span></dt>
+                <dd>
+                    <div *ngIf="adresse.codePostalId">
+                        <a [routerLink]="['/code-postaux', adresse.codePostalId, 'view']">{{ adresse.codePostalCodePostal }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adresse', adresse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "bazarv3App": {
+    "prodEnumeration": {
+      "home": {
+        "title": "ProdEnumerations",
+        "createLabel": "Créer un nouveau Prod Enumeration",
+        "createOrEditLabel": "Créer ou éditer un Prod Enumeration",
+        "search": "Recherche pour Prod Enumeration",
+        "notFound": "Aucun Prod Enumeration trouvé"
+      },
+      "created": "Un nouveau Prod Enumeration a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Prod Enumeration avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Prod Enumeration avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Prod Enumeration {{ id }} ?"
+      },
+      "detail": {
+        "title": "Prod Enumeration"
+      },
+      "type": "Type",
+      "nom": "Nom"
+    }
+  }
+}

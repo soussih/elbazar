@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stock">
+            <h2><span jhiTranslate="bazarv3App.stock.detail.title">Stock</span> {{ stock.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bazarv3App.stock.stockPhysique">Stock Physique</span></dt>
+                <dd>
+                    <span>{{ stock.stockPhysique }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.stockDisponible">Stock Disponible</span></dt>
+                <dd>
+                    <span>{{ stock.stockDisponible }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.stockReserve">Stock Reserve</span></dt>
+                <dd>
+                    <span>{{ stock.stockReserve }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.stockCommande">Stock Commande</span></dt>
+                <dd>
+                    <span>{{ stock.stockCommande }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.derniereEntre">Derniere Entre</span></dt>
+                <dd>
+                    <span>{{ stock.derniereEntre }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.derniereSortie">Derniere Sortie</span></dt>
+                <dd>
+                    <span>{{ stock.derniereSortie }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.alerteStock">Alerte Stock</span></dt>
+                <dd>
+                    <span>{{ stock.alerteStock }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.creeLe">Cree Le</span></dt>
+                <dd>
+                    <span>{{ stock.creeLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.creePar">Cree Par</span></dt>
+                <dd>
+                    <span>{{ stock.creePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.modifieLe">Modifie Le</span></dt>
+                <dd>
+                    <span>{{ stock.modifieLe }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.modifiePar">Modifie Par</span></dt>
+                <dd>
+                    <span>{{ stock.modifiePar }}</span>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.idProduit">Id Produit</span></dt>
+                <dd>
+                    <div *ngIf="stock.idProduitId">
+                        <a [routerLink]="['/produit', stock.idProduitId, 'view']">{{ stock.idProduitId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.idCategorie">Id Categorie</span></dt>
+                <dd>
+                    <div *ngIf="stock.idCategorieId">
+                        <a [routerLink]="['/categorie', stock.idCategorieId, 'view']">{{ stock.idCategorieId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bazarv3App.stock.idSousCategorie">Id Sous Categorie</span></dt>
+                <dd>
+                    <div *ngIf="stock.idSousCategorieId">
+                        <a [routerLink]="['/sous-categorie', stock.idSousCategorieId, 'view']">{{ stock.idSousCategorieId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock', stock.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

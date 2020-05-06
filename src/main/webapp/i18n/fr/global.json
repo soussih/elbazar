@@ -7,6 +7,22 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "categorie": "Categorie",
+        "sousCategorie": "Sous Categorie",
+        "produit": "Produit",
+        "prodEnumeration": "Prod Enumeration",
+        "produitUnite": "Produit Unite",
+        "stock": "Stock",
+        "mouvementStock": "Mouvement Stock",
+        "client": "Client",
+        "adresse": "Adresse",
+        "commande": "Commande",
+        "commandeLignes": "Commande Lignes",
+        "zone": "Zone",
+        "livraison": "Livraison",
+        "codePostaux": "Code Postaux",
+        "images": "Images",
+        "remise": "Remise",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

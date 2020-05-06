@@ -1,0 +1,70 @@
+{
+    "name": "Remise",
+    "fields": [
+        {
+            "fieldName": "categorieClient",
+            "fieldType": "CatClient",
+            "fieldValues": "Silver,Gold,Platinium"
+        },
+        {
+            "fieldName": "prixUnitaire",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "remiseCategorie",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "remisePromo",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cumulable",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "debutPromo",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "finPromo",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creeLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "creePar",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "modifieLe",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiePar",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "remise",
+            "relationshipName": "idProduit",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200503022000",
+    "entityTableName": "remise",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
